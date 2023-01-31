@@ -7,7 +7,7 @@ class Message
 	const std::string to_;
 	const std::string text_;
 public:
-	Message(const std::string& from, const std::string to, const std::string text)
+	Message(const std::string& from, const std::string& to, const std::string& text)
 		:from_(from), to_(to), text_(text)
 	{
 
