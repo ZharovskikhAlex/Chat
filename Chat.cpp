@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include "Chat.h"
 
@@ -8,28 +8,28 @@ void Chat::start()
 }
 
 std::shared_ptr<User>Chat::getUserByLogin(const std::string& login) const
-{                                                                                 //получаем login пользователя по его name
+{                                                                                 //РїРѕР»СѓС‡Р°РµРј login РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕ РµРіРѕ name
 	for (auto& user : users_)
-	{                                                                             //проходим весь вектор
-		if (login == user.GetUserLogin())                                         //если передаваемая ссылка на login равна значению возвращаемому функцией GetUserLogin
-			return std::make_shared<User>(user);                                  // то мы возвращаем shared-указатель на этого пользователя 
+	{                                                                             //РїСЂРѕС…РѕРґРёРј РІРµСЃСЊ РІРµРєС‚РѕСЂ
+		if (login == user.GetUserLogin())                                         //РµСЃР»Рё РїРµСЂРµРґР°РІР°РµРјР°СЏ СЃСЃС‹Р»РєР° РЅР° login СЂР°РІРЅР° Р·РЅР°С‡РµРЅРёСЋ РІРѕР·РІСЂР°С‰Р°РµРјРѕРјСѓ С„СѓРЅРєС†РёРµР№ GetUserLogin
+			return std::make_shared<User>(user);                                  // С‚Рѕ РјС‹ РІРѕР·РІСЂР°С‰Р°РµРј shared-СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЌС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ 
 	}
 	return nullptr;
 }
 
 std::shared_ptr<User>Chat::getUserByName(const std::string& name)const
-{                                                                                  //аналогично предыдущей конструкции 
+{                                                                                  //Р°РЅР°Р»РѕРіРёС‡РЅРѕ РїСЂРµРґС‹РґСѓС‰РµР№ РєРѕРЅСЃС‚СЂСѓРєС†РёРё 
 	for (auto& user : users_)
 	{
 		if (name == user.GetUserName())
-			return std::make_shared<User>(user);                                   //возвращает указатель
+			return std::make_shared<User>(user);                                   //РІРѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ
 	}
 	return nullptr;
 }
 
 void Chat::showLoginMenu()
 {
-	currentUser_ = nullptr;                                                         //присываиваем полю, текущий пользователь, значение nullptr
+	currentUser_ = nullptr;                                                         //РїСЂРёСЃС‹РІР°РёРІР°РµРј РїРѕР»СЋ, С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ, Р·РЅР°С‡РµРЅРёРµ nullptr
 	char operation;
 
 	do
@@ -44,17 +44,17 @@ void Chat::showLoginMenu()
 		switch (operation)
 		{
 		case '1':
-			login();                                                                 //заходим под существующим логином и паролем
+			login();                                                                 //Р·Р°С…РѕРґРёРј РїРѕРґ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРј Р»РѕРіРёРЅРѕРј Рё РїР°СЂРѕР»РµРј
 			break;
 
 		case '2':
 			try
 			{
-				signUp();                                                            //регистрируемся
+				signUp();                                                            //СЂРµРіРёСЃС‚СЂРёСЂСѓРµРјСЃСЏ
 			}
 			catch (const std::exception& e)
 			{
-				std::cout << e.what() << std::endl;									//ловим исключение, вызванное в функции signup
+				std::cout << e.what() << std::endl;									//Р»РѕРІРёРј РёСЃРєР»СЋС‡РµРЅРёРµ, РІС‹Р·РІР°РЅРЅРѕРµ РІ С„СѓРЅРєС†РёРё signup
 			}
 			break;
 
@@ -67,7 +67,7 @@ void Chat::showLoginMenu()
 			break;
 
 		}
-	} while (!currentUser_ && isChatWork_);                                           //цикл работает, пока не зарегистрирован пользователь, и пока чат работает
+	} while (!currentUser_ && isChatWork_);                                           //С†РёРєР» СЂР°Р±РѕС‚Р°РµС‚, РїРѕРєР° РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ, Рё РїРѕРєР° С‡Р°С‚ СЂР°Р±РѕС‚Р°РµС‚
 }
 
 void Chat::login()
@@ -82,8 +82,8 @@ void Chat::login()
 		std::cout << "password: ";
 		std::cin >> password;
 
-		currentUser_ = getUserByLogin(login);                                          //указатель на пользователя, который зарегистрировался
-		if (currentUser_ == nullptr || (password != currentUser_->GetUserPassword()))  //если данного пользователя нет в векторе, то возвращаем пустой указаетель, или если неверный пароль
+		currentUser_ = getUserByLogin(login);                                          //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»СЃСЏ
+		if (currentUser_ == nullptr || (password != currentUser_->GetUserPassword()))  //РµСЃР»Рё РґР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµС‚ РІ РІРµРєС‚РѕСЂРµ, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј РїСѓСЃС‚РѕР№ СѓРєР°Р·Р°РµС‚РµР»СЊ, РёР»Рё РµСЃР»Рё РЅРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ
 		{
 			currentUser_ = nullptr;
 			std::cout << "login failed..." << std::endl;
@@ -104,17 +104,17 @@ void Chat::showChat()const
 
 	for (auto& mess : messages_)
 	{
-		if (currentUser_->GetUserLogin() == mess.GetFrom() || currentUser_->GetUserLogin() == mess.GetTo() || mess.GetTo() == "all")	//если текущий пользователь
+		if (currentUser_->GetUserLogin() == mess.GetFrom() || currentUser_->GetUserLogin() == mess.GetTo() || mess.GetTo() == "all")	//РµСЃР»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 		{
 			from = (currentUser_->GetUserLogin() == mess.GetFrom()) ? "me" : getUserByLogin(mess.GetFrom())->GetUserName();
 			if (mess.GetTo() == "all")
-			{																															//если, to равно all, то адресуем сообщение всем пользователям
+			{																															//РµСЃР»Рё, to СЂР°РІРЅРѕ all, С‚Рѕ Р°РґСЂРµСЃСѓРµРј СЃРѕРѕР±С‰РµРЅРёРµ РІСЃРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј
 				to = "all";
 			}
 			else
 			{
-				to = (currentUser_->GetUserLogin() == mess.GetTo()) ? "me" : getUserByLogin(mess.GetTo())->GetUserName();               /*если мы текущее имя пользователя равно to, то отправляем сообщение самому себе,
-																																		нет, то получаем имя пользователя и присваиваем его значение полю to*/
+				to = (currentUser_->GetUserLogin() == mess.GetTo()) ? "me" : getUserByLogin(mess.GetTo())->GetUserName();               /*РµСЃР»Рё РјС‹ С‚РµРєСѓС‰РµРµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЂР°РІРЅРѕ to, С‚Рѕ РѕС‚РїСЂР°РІР»СЏРµРј СЃРѕРѕР±С‰РµРЅРёРµ СЃР°РјРѕРјСѓ СЃРµР±Рµ,
+																																		РЅРµС‚, С‚Рѕ РїРѕР»СѓС‡Р°РµРј РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё РїСЂРёСЃРІР°РёРІР°РµРј РµРіРѕ Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЋ to*/
 			}
 			std::cout << "Message from " << from << " to " << to << std::endl;
 			std::cout << "text: " << mess.GetText() << std::endl;
@@ -135,19 +135,19 @@ void Chat::signUp()
 	std::cin >> name;
 	std::cout << "\n";
 
-	if (getUserByLogin(login) || login == "all")                    //если login- all, то ошибка
+	if (getUserByLogin(login) || login == "all")                    //РµСЃР»Рё login- all, С‚Рѕ РѕС€РёР±РєР°
 	{
 		throw UserLoginExp();
 	}
 
 	if (getUserByName(name) || name == "all")
-	{                                                               //если name - all, то ошибка
+	{                                                               //РµСЃР»Рё name - all, С‚Рѕ РѕС€РёР±РєР°
 		throw UserNameExp();
 	}
 
-	User user = User(login, password, name, time);                  // создаем объект класса User
-	users_.push_back(user);                                      //добавляем пользователя в вектор
-	currentUser_ = std::make_shared<User>(user);                    //создаем указатель на текущего пользователя
+	User user = User(login, password, name, time);                  // СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° User
+	users_.push_back(user);                                         //РґРѕР±Р°РІР»СЏРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РІРµРєС‚РѕСЂ
+	currentUser_ = std::make_shared<User>(user);                    //СЃРѕР·РґР°РµРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 }
 
 void Chat::showUserMenu()
@@ -198,14 +198,14 @@ void Chat::addMessage()
 	getline(std::cin, text);
 
 	if (!(to == "all" || getUserByName(to)))
-	{                                                                                 //либо посылаем сообщения всем, либо послыем пользователю, который уже есть в векторе
+	{                                                                                 //Р»РёР±Рѕ РїРѕСЃС‹Р»Р°РµРј СЃРѕРѕР±С‰РµРЅРёСЏ РІСЃРµРј, Р»РёР±Рѕ РїРѕСЃР»С‹РµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ, РєРѕС‚РѕСЂС‹Р№ СѓР¶Рµ РµСЃС‚СЊ РІ РІРµРєС‚РѕСЂРµ
 		std::cout << "error send message: can't find" << to << std::endl;
 		return;
 	}
 
 	if (to == "all")
-		messages_.push_back(Message{ currentUser_->GetUserLogin(),"all",text });   /*помещаем объект класса Message в констукторе которого указывем
-																					  ссылку на текущего пользоваетеля, сообещение, и кому адресовано*/
+		messages_.push_back(Message{ currentUser_->GetUserLogin(),"all",text });   /*РїРѕРјРµС‰Р°РµРј РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Message РІ РєРѕРЅСЃС‚СѓРєС‚РѕСЂРµ РєРѕС‚РѕСЂРѕРіРѕ СѓРєР°Р·С‹РІРµРј
+																					  СЃСЃС‹Р»РєСѓ РЅР° С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°РµС‚РµР»СЏ, СЃРѕРѕР±РµС‰РµРЅРёРµ, Рё РєРѕРјСѓ Р°РґСЂРµСЃРѕРІР°РЅРѕ*/
 	else
 		messages_.push_back(Message{ currentUser_->GetUserLogin(),getUserByName(to)->GetUserLogin(),text });
 }

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <exception>
 #include <memory>
@@ -7,7 +7,7 @@
 struct UserLoginExp :public std::exception 
 {
 	                                               
-	const char* what() const noexcept override		//вызываем класс исключений, в случае, если пользователя all
+	const char* what() const noexcept override			//вызываем класс исключений, в случае, если пользователя all
 	{
 		return "error: user login is busy";
 	}
@@ -16,7 +16,7 @@ struct UserLoginExp :public std::exception
 
 struct UserNameExp :public std::exception 
 {
-	const char* what()const noexcept override		 //вызываем класс исключений, в случае , если пользователь all
+	const char* what()const noexcept override			//вызываем класс исключений, в случае , если пользователь all
 	{
 		return "error: user name is busy";
 	}
@@ -24,8 +24,8 @@ struct UserNameExp :public std::exception
 
 class Chat
 {
-	bool isChatWork_ = false;			 	//переменная, отвечающая за работу чата
-	std::vector<User> users_; 				//создаем вектор, который хранит пользователей чата
+	bool isChatWork_ = false;			 				//переменная, отвечающая за работу чата
+	std::vector<User> users_; 							//создаем вектор, который хранит пользователей чата
 	std::vector<Message> messages_;                 	//создаем вектор, который хранит сообщения в чате
 	std::shared_ptr<User> currentUser_ = nullptr;  		//shared указатель на текущего пользователя
 
