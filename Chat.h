@@ -7,7 +7,7 @@
 struct UserLoginExp :public std::exception 
 {
 	                                               
-	const char* what() const noexcept override		//вызываем класс исключений, в случае, если пользователя all
+	const char* what() const noexcept override		//РІС‹Р·С‹РІР°РµРј РєР»Р°СЃСЃ РёСЃРєР»СЋС‡РµРЅРёР№, РІ СЃР»СѓС‡Р°Рµ, РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ all
 	{
 		return "error: user login is busy";
 	}
@@ -16,7 +16,7 @@ struct UserLoginExp :public std::exception
 
 struct UserNameExp :public std::exception 
 {
-	const char* what()const noexcept override		 //вызываем класс исключений, в случае , если пользователь all
+	const char* what()const noexcept override		 //ГўГ»Г§Г»ГўГ ГҐГ¬ ГЄГ«Г Г±Г± ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГ©, Гў Г±Г«ГіГ·Г ГҐ , ГҐГ±Г«ГЁ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј all
 	{
 		return "error: user name is busy";
 	}
@@ -24,10 +24,10 @@ struct UserNameExp :public std::exception
 
 class Chat
 {
-	bool isChatWork_ = false;                      //переменная, отвечающая за работу чата
-	std::vector<User> users_;                   //создаем вектор, который хранит пользователей чата
-	std::vector<Message> messages_;             //создаем вектор, который хранит сообщения в чате
-	std::shared_ptr<User> currentUser_ = nullptr;  //shared указатель указывает на текущего пользователя
+	bool isChatWork_ = false;                      //ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї, Г®ГІГўГҐГ·Г ГѕГ№Г Гї Г§Г  Г°Г ГЎГ®ГІГі Г·Г ГІГ 
+	std::vector<User> users_;                   //Г±Г®Г§Г¤Г ГҐГ¬ ГўГҐГЄГІГ®Г°, ГЄГ®ГІГ®Г°Г»Г© ГµГ°Г Г­ГЁГІ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГҐГ© Г·Г ГІГ 
+	std::vector<Message> messages_;             //Г±Г®Г§Г¤Г ГҐГ¬ ГўГҐГЄГІГ®Г°, ГЄГ®ГІГ®Г°Г»Г© ГµГ°Г Г­ГЁГІ Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Гў Г·Г ГІГҐ
+	std::shared_ptr<User> currentUser_ = nullptr;  //shared ГіГЄГ Г§Г ГІГҐГ«Гј ГіГЄГ Г§Г»ГўГ ГҐГІ Г­Г  ГІГҐГЄГіГ№ГҐГЈГ® ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї
 
 	void login();
 	void signUp();
