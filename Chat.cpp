@@ -29,7 +29,7 @@ std::shared_ptr<User>Chat::getUserByName(const std::string& name)const
 
 void Chat::showLoginMenu()
 {
-	currentUser_ = nullptr;                                                         //присываиваем полю, текущий пользователь, значение nullptr
+	currentUser_ = nullptr;                                                         //присваиваем полю, текущий пользователь, значение nullptr
 	char operation;
 
 	do
